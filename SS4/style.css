@@ -46,3 +46,29 @@ a {
   cursor: pointer;
   font-size: 19px;
 }
+
+.lines {
+  height: 36px;
+  border-right: 1px white solid;
+}
+
+
+.main-content .selector {
+  padding: 16px 0px;
+  text-align: center;
+}
+
+.main-content .selector a {
+  font-size: 17px;
+  font-weight: 500;
+  color: #989898;
+  padding: 12px 12px;
+}
+
+#products {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+
+  /* wait */
+}
