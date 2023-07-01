@@ -81,8 +81,36 @@
 // console.log(arr);///?
 
 
+/////// Đối tượng: object
+/// Cú pháp khai báo: 
+let husky = {
+  color: "black",
+  age: 100,
+  name: "Ngáo",
+
+  bite() {
+    alert("Gâu gâu gâu");
+  }
+}
+
+husky.bite();
+
+/*
+Trong Object gồm: {
+key: value,
+key: value, 
+}
+*/
+
+////// C,R,U,D
+////Thêm mới 1 thuộc tính
+husky.type = "husky";
+
+/// Update 1 thuộc tính
+husky.age = 25;
+// console.log(husky);
 
 
-
-
-
+/// Delete thuộc tính 
+delete husky.type;
+// console.log(husky);
