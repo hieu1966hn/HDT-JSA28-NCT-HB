@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+
+    //  lưu trữ trên localStorage
+    const data = {
+      email: "hieu@gmail.com",
+      pw: "123123"
+    }
+    localStorage.setItem("data", JSON.stringify(data));
+
+
+    // Lấy dữ liệu về:
+    console.log(
+      JSON.parse(
+        localStorage.getItem("data")
+      )
+    );
+
+    ///// Cập nhật dữ liệu mật khẩu
+    data.pw = "321321";
+    console.log(data);
+    localStorage.setItem("data", JSON.stringify(data));
+
+  </script>
+</body>
+
+</html>

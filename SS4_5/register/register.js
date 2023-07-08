@@ -28,6 +28,18 @@ register.addEventListener("submit", function (event) {
     alert("Password must be contain a number or special character");
   }
   else {
-    console.log("Xử lý với LocalStorage");
+    // Xử lý với LocalStorage
+    if (localStorage.users) {
+      // Kiểm tra nếu trên localStorage đã có khóa: users
+      let users = JSON.parse(localStorage.users);
+      users.push(data);
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+    else {
+      localStorage.setItem("users", JSON.stringify(
+        [data]
+      ))
+    }
+    location.replace("../login/login.html");
   }
 })
