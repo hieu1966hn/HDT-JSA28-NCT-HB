@@ -32,14 +32,27 @@ register.addEventListener("submit", function (event) {
     if (localStorage.users) {
       // Kiểm tra nếu trên localStorage đã có khóa: users
       let users = JSON.parse(localStorage.users);
-      users.push(data);
-      localStorage.setItem("users", JSON.stringify(users));
+
+      let dem = 0
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].email === data.email) {
+          dem++;
+          alert("Please input another email");
+        }
+      }
+      // Kiểm tra biến dem nếu dem>0 => email này đã bị trùng lăp.
+      if (dem == 0) {
+        users.push(data);
+        localStorage.setItem("users", JSON.stringify(users));
+        location.replace("../login/login.html");
+      }
     }
     else {
       localStorage.setItem("users", JSON.stringify(
         [data]
-      ))
+      ));
+      location.replace("../login/login.html");
     }
-    location.replace("../login/login.html");
+
   }
 })

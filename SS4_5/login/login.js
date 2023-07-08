@@ -9,6 +9,7 @@ login.addEventListener("submit", function (event) {
   for (let i = 0; i < users.length; i++) {
     if (users[i].email === login.email.value.trim()) {
       if (users[i].password === login.password.value.trim()) {
+        alert("Login Success");
         window.location.href = "../index.html"
       }
       else {
@@ -19,7 +20,5 @@ login.addEventListener("submit", function (event) {
   if (users[users.length - 1].email != login.email.value.trim()) {
     alert("Wrong email");
   }
-
-
 
 })
