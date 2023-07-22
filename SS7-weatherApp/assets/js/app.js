@@ -30,11 +30,11 @@ searchInput.addEventListener("change", (event) => {
       ///// Additional Section
       let sunriseTime = new Date(Number(data.sys.sunrise) * 1000);
       console.log("sunriseTime: ", sunriseTime);
-      sunrise.innerHTML = `${sunriseTime.getHours}:${sunriseTime.getMinutes}`;
+      sunrise.innerHTML = `${sunriseTime.getHours()}:${sunriseTime.getMinutes()}`;
 
       let sunsetTime = new Date(Number(data.sys.sunset) * 1000);
       console.log("sunsetTime: ", sunsetTime);
-      sunrise.innerHTML = `${sunsetTime.getHours}:${sunsetTime.getMinutes}`;
+      sunset.innerHTML = `${sunsetTime.getHours()}:${sunsetTime.getMinutes()}`;
 
 
 
