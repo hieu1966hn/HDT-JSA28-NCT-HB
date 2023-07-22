@@ -16,12 +16,33 @@ const windSpeed = document.querySelector(".wind-speed");
 
 // Lập trình bắt sự kiện enter tại input
 searchInput.addEventListener("change", (event) => {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${event.target.value}&appid=${API_KEY}`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${event.target.value}&appid=${API_KEY}&lang=vi&units=metric`)
     .then(response => response.json())
     .then(data => {
       console.log(data);
       // Code truyền dữ liệu vào HTML
+      cityName.innerHTML = data.name || DEFAULT_VALUE;
+      weatherState.innerHTML = data.weather[0].description;
+      weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+      temperature.innerHTML = Math.round(data.main.temp);
 
+
+      ///// Additional Section
+      let sunriseTime = new Date(Number(data.sys.sunrise) * 1000);
+      console.log("sunriseTime: ", sunriseTime);
+      sunrise.innerHTML = `${sunriseTime.getHours}:${sunriseTime.getMinutes}`;
+
+      let sunsetTime = new Date(Number(data.sys.sunset) * 1000);
+      console.log("sunsetTime: ", sunsetTime);
+      sunrise.innerHTML = `${sunsetTime.getHours}:${sunsetTime.getMinutes}`;
+
+
+
+      // sunrise.innerHTML = data.sys.sunrise;
+      // sunset.innerHTML = data.sys.sunset;
+
+      humidity.innerHTML = data.main.humidity;
+      windSpeed.innerHTML = (data.wind.speed * 3.6).toFixed(2);
     })
 
 
